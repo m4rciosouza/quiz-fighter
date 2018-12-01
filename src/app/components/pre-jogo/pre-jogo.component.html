@@ -1,0 +1,36 @@
+<div class="pre-jogo">
+	<div class="logo"></div>
+	<img src="/assets/botoes/home.png" 
+		class="home"
+		(click)="sair()">
+	<p class="titulo">Selecione o seu personagem</p>
+	<div class="personagem"
+		[ngClass]="{ 'p-borda': !personagem, 
+			'p-selecionado': P_ARQUEIRA == personagem }"
+		(click)="selecionarPersonagem(P_ARQUEIRA)">
+		<img src="/assets/sprites/arqueira.png">
+	</div>
+	<div class="personagem"
+		[ngClass]="{ 'p-borda': !personagem, 
+			'p-selecionado': P_ELFO_AZUL == personagem }"
+		(click)="selecionarPersonagem(P_ELFO_AZUL)">
+		<img src="/assets/sprites/elfo-azul.png">
+	</div>
+	<div class="personagem"
+		[ngClass]="{ 'p-borda': !personagem, 
+			'p-selecionado': P_ELFO_VERDE == personagem }"
+		(click)="selecionarPersonagem(P_ELFO_VERDE)">
+		<img src="/assets/sprites/elfo-verde.png">
+	</div>
+	<div class="personagem"
+		[ngClass]="{ 'p-borda': !personagem, 
+			'p-selecionado': P_FADA_VERMELHA == personagem }"
+		(click)="selecionarPersonagem(P_FADA_VERMELHA)">
+		<img src="/assets/sprites/fada-vermelha.png">
+	</div>
+	<p *ngIf="personagem">
+		Conectando ao servidor, aguarde
+		<br />
+		<img src="/assets/loading.gif">
+	</p>
+</div>

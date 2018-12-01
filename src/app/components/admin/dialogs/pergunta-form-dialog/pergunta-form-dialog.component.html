@@ -1,0 +1,81 @@
+<form [formGroup]="form" novalidate>
+  <mat-list>
+    <mat-list-item>
+	  <mat-form-field>
+	    <input 
+	      matInput 
+	      placeholder="Questão" 
+	      formControlName="questao">
+	  </mat-form-field>
+	</mat-list-item>
+    <mat-list-item>
+	  <mat-form-field>
+	    <input 
+	      matInput 
+	      placeholder="Opção 1" 
+	      formControlName="opcao1">
+	  </mat-form-field>
+	</mat-list-item>
+    <mat-list-item>
+	  <mat-form-field>
+	    <input 
+	      matInput 
+	      placeholder="Opção 2" 
+	      formControlName="opcao2">
+	  </mat-form-field>
+	</mat-list-item>
+    <mat-list-item>
+	  <mat-form-field>
+	    <input 
+	      matInput 
+	      placeholder="Opção 3" 
+	      formControlName="opcao3">
+	  </mat-form-field>
+	</mat-list-item>
+    <mat-list-item>
+	  <mat-form-field>
+	    <input 
+	      matInput 
+	      placeholder="Opção 4" 
+	      formControlName="opcao4">
+	  </mat-form-field>
+	</mat-list-item>
+	<mat-list-item>
+	  <mat-form-field>
+        <mat-select 
+          placeholder="Opção correta" 
+          formControlName="correta">
+          <mat-option 
+            *ngFor="let opcao of [0, 1, 2, 3]" 
+            [value]="opcao">
+            {{ opcao + 1 }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item>
+	  <button 
+	    mat-raised-button 
+	  	(click)="fecharDialog()">
+		Cancelar
+	  </button>
+	  &nbsp;
+	  <button 
+	    mat-raised-button 
+	    color="primary" 
+	  	(click)="enviar()"
+	  	[disabled]="form.invalid"
+	  	*ngIf="!data">
+		Cadastrar
+	  </button>
+	  <button 
+	    mat-raised-button 
+	    color="primary" 
+	  	(click)="enviar()"
+	  	[disabled]="form.invalid"
+	  	*ngIf="data">
+		Atualizar
+	  </button>
+	</mat-list-item>
+  </mat-list> 
+</form>

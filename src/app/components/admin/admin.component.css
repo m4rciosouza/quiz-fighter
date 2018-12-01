@@ -1,0 +1,30 @@
+.admin {
+	background-image: url("/assets/backgrounds/quiz-background.png");
+	background-color: #FFC;
+	min-height: 600px;
+	text-align: center;
+	position: relative;
+}
+
+.logo {
+	width: 400px;
+	height: 135px;
+	background-image: url("/assets/backgrounds/logo.png");
+	background-repeat: no-repeat;
+	margin: auto;
+}
+
+.home {
+	position: absolute;
+	top: 90px;
+	left: 5px;
+	cursor: pointer;
+}
+
+.perguntas-container {
+	margin: 5px;
+}
+
+.mat-table, .mat-paginator {
+    background: #ffc;
+}

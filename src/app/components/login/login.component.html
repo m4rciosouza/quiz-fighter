@@ -1,0 +1,49 @@
+<div class="login">
+	<div class="logo"></div>
+	<form [formGroup]="form" novalidate>
+	  <mat-list>
+	    <mat-list-item>
+		  <mat-form-field>
+		    <input matInput placeholder="Email" 
+		    	formControlName="email">
+		  </mat-form-field>
+		</mat-list-item>
+	    <mat-list-item>
+		  <mat-form-field>
+		    <input type="password" matInput placeholder="Senha"
+		    	formControlName="senha">
+		  </mat-form-field>
+		</mat-list-item>
+	    <mat-list-item *ngIf="!cadastro">
+		  <button mat-raised-button color="primary"
+		  	[disabled]="form.invalid" (click)="logarEmail()">
+		  	Logar
+		  </button>
+		</mat-list-item>
+		<mat-list-item *ngIf="!cadastro">
+		  <button mat-raised-button color="warn"
+		    (click)="logarGoogle()">
+		  	Google login
+		  </button>
+		</mat-list-item>
+		<mat-list-item *ngIf="!cadastro">
+		  <a mat-button color="primary"
+		  	(click)="exibirCadastro()">
+		  	Não possui cadastro?
+		  </a>
+		</mat-list-item>
+		<mat-list-item *ngIf="cadastro">
+		  <button mat-raised-button color="primary"
+		  	[disabled]="form.invalid" (click)="cadastrarEmail()">
+		  	Cadastrar
+		  </button>
+		</mat-list-item>
+		<mat-list-item *ngIf="cadastro">
+		  <a mat-button color="primary"
+		  	(click)="exibirLogin()">
+		  	Voltar
+		  </a>
+		</mat-list-item>
+	  </mat-list> 
+	</form>
+</div>

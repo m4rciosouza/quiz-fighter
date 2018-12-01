@@ -1,0 +1,54 @@
+<div class="quiz">
+	<div class="logo"></div>
+	<img src="/assets/botoes/home.png" 
+		class="home"
+		(click)="sair()">
+	<img src="/assets/botoes/left.png" 
+		class="novo-jogo"
+		(click)="novoJogo()">
+	<p class="pergunta">
+		{{ perguntaAtual.questao }}
+	</p>
+	<div *ngFor="let opcao of perguntaAtual.opcoes; let i=index"
+		class="btnOpcao"
+		[ngClass]="{ 'btnOpcaoAtivo': i==questaoSel, 
+			'btnOpcao': i!=questaoSel }"
+		(click)="selecionarOpcao(i)">
+		{{ opcao }}
+	</div>
+	<button 
+		class="btnConfirmar"
+		[ngClass]="{ 'btnConfirmar': questaoSel >= 0, 
+			'btnInativo': questaoSel < 0 }"
+		(click)="confirmar($event)" 
+		[disabled]="questaoSel < 0"
+		*ngIf="!aguardarJogadaAdversario">
+		Confirmar
+	</button>
+	<p *ngIf="aguardarJogadaAdversario">
+		Aguarde seu oponente jogar
+		<br />
+		<img src="/assets/loading.gif">
+	</p>
+	<div class="popup"
+		[ngStyle]="{'display': mostrarPopup ? 'block' : 'none'}">
+		<p>{{ msgPopup }}</p>
+		<div class="btnPopup" 
+			(click)="fecharPopup()" 
+			*ngIf="!fimJogo">
+			Continuar
+		</div>
+		<div class="btnPopup" 
+			(click)="novoJogo()" 
+			*ngIf="fimJogo">
+			Novo Jogo
+		</div>
+	</div>
+	<div class="popup"
+		[ngStyle]="{'display': aguardandoOponente ? 'block' : 'none'}">
+		<br />
+		<p>Aguarde o seu oponente</p>
+		<img src="/assets/loading.gif">
+	</div>
+</div>
+<div id="game" [ngClass]="{game: !jogo}"></div>
