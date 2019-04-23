@@ -2,7 +2,7 @@
 
 Projeto utilizado no curso da Udemy ...
 
-Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Executando a aplicação localmente
 
